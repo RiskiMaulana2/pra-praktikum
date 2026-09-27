@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BAKESTREET — Premium Homemade & Birthday Cakes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Font sans-serif tebal khas sportswear modern -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,900;1,900&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+      background-color: #ffffff;
+      color: #000000;
+      line-height: 1.4;
+    }
+
+    /* Top Strip (Promo Bar) */
+    .top-bar {
+      background-color: #000;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 8px 16px;
+    }
+
+    /* Navbar Adidas Style */
+    header {
+      border-bottom: 1px solid #e5e5e5;
+      position: sticky;
+      top: 0;
+      background: #fff;
+      z-index: 100;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-weight: 900;
+      font-size: 22px;
+      letter-spacing: -1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #000;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #000;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding-bottom: 4px;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .nav-links a:hover {
+      border-bottom: 2px solid #000;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 16px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    /* Hero Banner (Adidas Campaign Vibe) */
+    .hero {
+      position: relative;
+      background: #111;
+      color: #fff;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      padding: 60px 40px;
+      background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1600&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-content {
+      max-width: 600px;
+      margin-left: 5%;
+    }
+
+    .hero-tag {
+      font-size: 12px;
+      letter-spacing: 2px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      display: inline-block;
+      background: #fff;
+      color: #000;
+      padding: 4px 8px;
+    }
+
+    .hero h1 {
+      font-size: 56px;
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 0.95;
+      letter-spacing: -1.5px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 15px;
+      margin-bottom: 28px;
+      font-weight: 400;
+      color: #eaeaea;
+    }
+
+    /* Adidas Style Button */
+    .btn-adidas {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background-color: #000;
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      border: 1px solid #fff;
+      transition: all 0.2s ease;
+    }
+
+    .btn-adidas:hover {
+      background-color: #fff;
+      color: #000;
+      border-color: #000;
+    }
+
+    /* Product Grid */
+    .section-container {
+      max-width: 1400px;
+      margin: 60px auto;
+      padding: 0 40px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 24px;
+    }
+
+    .section-header h2 {
+      font-size: 28px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+    }
+
+    .section-header a {
+      color: #000;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .product-card {
+      position: relative;
+      background: #f7f7f7;
+      transition: box-shadow 0.2s;
+    }
+
+    .product-card:hover {
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .product-img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+      background-color: #eee;
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 4px 8px;
+      letter-spacing: 1px;
+    }
+
+    .product-info {
+      padding: 16px;
+      background: #fff;
+    }
+
+    .product-category {
+      font-size: 11px;
+      font-weight: 700;
+      color: #767677;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    .product-name {
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    .product-price {
+      font-size: 14px;
+      font-weight: 700;
+      color: #000;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #000;
+      color: #fff;
+      padding: 60px 40px 30px;
+      margin-top: 80px;
+    }
+
+    .footer-grid {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col h4 {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 8px;
+    }
+
+    .footer-col ul li a {
+      color: #c8c7c7;
+      text-decoration: none;
+      font-size: 12px;
+    }
+
+    .footer-col ul li a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #333;
+      padding-top: 24px;
+      text-align: center;
+      font-size: 11px;
+      color: #888;
+      letter-spacing: 1px;
+    }
+
+    /* Responsif */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 16px 20px;
+      }
+      .nav-links {
+        display: none;
+      }
+      .hero {
+        padding: 40px 20px;
+      }
+      .hero h1 {
+        font-size: 38px;
+      }
+      .section-container {
+        padding: 0 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Promo Top Bar -->
+  <div class="top-bar">
+    PENGIRIMAN GRATIS KHUSUS AREA JABODETABEK UNTUK PEMESANAN KUE ULANG TAHUN
+  </div>
+
+  <!-- Header / Navigation -->
+  <header>
+    <div class="navbar">
+      <a href="#" class="logo">BAKESTREET.</a>
+      <ul class="nav-links">
+        <li><a href="#birthday">Kue Ulang Tahun</a></li>
+        <li><a href="#homemade">Kue Rumahan</a></li>
+        <li><a href="#custom">Custom Order</a></li>
+        <li><a href="#outlet">Outlet</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="#" style="text-decoration:none; color:#000;">Cari 🔍</a>
+        <a href="#" style="text-decoration:none; color:#000;">Cart (0)</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-tag">Drop Terbaru</span>
+      <h1>PERFECT CAKE.<br>FOR EVERY WIN.</h1>
+      <p>Kue ulang tahun artisan dan resep rumahan autentik, dibuat fresh setiap hari langsung dari oven tanpa bahan pengawet.</p>
+      <a href="#birthday" class="btn-adidas">PESAN SEKARANG &rarr;</a>
+    </div>
+  </section>
+
+  <!-- Section Kue Ulang Tahun -->
+  <section class="section-container" id="birthday">
+    <div class="section-header">
+      <h2>Koleksi Ulang Tahun</h2>
+      <a href="#">Lihat Semua &rarr;</a>
+    </div>
+    
+    <div class="product-grid">
+      <!-- Card 1 -->
+      <div class="product-card">
+        <span class="product-badge">Best Seller</span>
+        <img class="product-img" src="/storage/emulated/0/Android/data/com.fazil.htmleditor/files/Documents/Html/media/images/IMG-20260924-WA0016.jpg" alt="Midnight Choco Cake">
+        <div class="product-info">
+          <div class="product-category">Birthday • Signature</div>
+          <div class="product-name">Midnight Dark Ganache 20cm</div>
+          <div class="product-price">Rp 350.000</div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="product-card">
+        <span class="product-badge">New Arrival</span>
+        <img class="product-img" src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=600&auto=format&fit=crop" alt="Berry Vanilla Cake">
+        <div class="product-info">
+          <div class="product-category">Birthday • Fruity</div>
+          <div class="product-name">Strawberry Velvet Cloud</div>
+          <div class="product-price">Rp 380.000</div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="product-card">
+        <img class="product-img" src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?q=80&w=600&auto=format&fit=crop" alt="Korean Aesthetic Cake">
+        <div class="product-info">
+          <div class="product-category">Birthday • Minimalist</div>
+          <div class="product-name">Monochrome Custom Lettering</div>
+          <div class="product-price">Rp 290.000</div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="product-card">
+        <img class="product-img" src="https://images.unsplash.com/photo-1542826438-bd32f43d626f?q=80&w=600&auto=format&fit=crop" alt="Lotus Biscoff Cake">
+        <div class="product-info">
+          <div class="product-category">Birthday • Premium</div>
+          <div class="product-name">Lotus Caramel Crunch Layer</div>
+          <div class="product-price">Rp 410.000</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Kue Rumahan -->
+  <section class="section-container" id="homemade">
+    <div class="section-header">
+      <h2>Kue Rumahan Autentik</h2>
+      <a href="#">Lihat Semua &rarr;</a>
+    </div>
+
+    <div class="product-grid">
+      <!-- Card 1 -->
+      <div class="product-card">
+        <span class="product-badge">Original Recipe</span>
+        <img class="product-img" src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=600&auto=format&fit=crop" alt="Fudgy Brownies">
+        <div class="product-info">
+          <div class="product-category">Homemade • Bestseller</div>
+          <div class="product-name">Fudgy Choco Brownies Box</div>
+          <div class="product-price">Rp 85.000</div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="product-card">
+        <img class="product-img" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=600&auto=format&fit=crop" alt="Bolu Jadul">
+        <div class="product-info">
+          <div class="product-category">Homemade • Classic</div>
+          <div class="product-name">Bolu Jadul Keju Butter Wijsman</div>
+          <div class="product-price">Rp 120.000</div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="product-card">
+        <span class="product-badge">Fresh Daily</span>
+        <img class="product-img" src="https://images.unsplash.com/photo-1579372786545-d24232daf58c?q=80&w=600&auto=format&fit=crop" alt="Cupcakes">
+        <div class="product-info">
+          <div class="product-category">Homemade • Snacks</div>
+          <div class="product-name">Vanilla & Buttercream Cupcake (Box of 6)</div>
+          <div class="product-price">Rp 95.000</div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="product-card">
+        <img class="product-img" src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=600&auto=format&fit=crop" alt="Chiffon Cake">
+        <div class="product-info">
+          <div class="product-category">Homemade • Soft</div>
+          <div class="product-name">Pandan Chiffon Sponge 22cm</div>
+          <div class="product-price">Rp 90.000</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Produk</h4>
+        <ul>
+          <li><a href="#">Kue Ulang Tahun</a></li>
+          <li><a href="#">Kue Kering Rumahan</a></li>
+          <li><a href="#">Bolu & Brownies</a></li>
+          <li><a href="#">Hampers & Gift</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Pemesanan</h4>
+        <ul>
+          <li><a href="#">Panduan Custom Cake</a></li>
+          <li><a href="#">Ketentuan Delivery</a></li>
+          <li><a href="#">FAQ & Alergi Bahan</a></li>
+          <li><a href="#">Cek Resi & Status</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Tentang Kami</h4>
+        <ul>
+          <li><a href="#">Cerita Dapur Kami</a></li>
+          <li><a href="#">Kemitraan Reseller</a></li>
+          <li><a href="#">Lokasi Kitchen</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontak Cepat</h4>
+        <ul>
+          <li><a href="#">WhatsApp: +62 812-3456-7890</a></li>
+          <li><a href="#">Instagram: @bakestreet.id</a></li>
+          <li><a href="#">Email: order@bakestreet.id</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 BAKESTREET BAKERY INDONESIA. SELURUH HAK CIPTA DILINDUNGI.
+    </div>
+  </footer>
+
+</body>
+</html>
