@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ora koyo Kue - Kue Rumahan</title>
+  <!-- Google Material Symbols (Icons) -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: #fff;
+      color: #333;
+      padding-bottom: 80px;
+    }
+
+    /* Top Announcement Bar */
+    .top-banner {
+      background-color: #5c3d2e;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 8px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      border-bottom: 1px solid #f0eae1;
+      background-color: #fff;
+    }
+    .nav-left, .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .logo {
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: -0.5px;
+      color: #5c3d2e;
+      text-transform: lowercase;
+    }
+    .badge-wrapper {
+      position: relative;
+    }
+    .badge {
+      position: absolute;
+      top: -4px;
+      right: -6px;
+      background-color: #b85d38;
+      color: white;
+      font-size: 10px;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Chips / Kategori */
+    .chips-container {
+      display: flex;
+      gap: 8px;
+      padding: 12px 16px;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .chip {
+      padding: 8px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .chip-dark {
+      background-color: #5c3d2e;
+      color: #fff;
+    }
+    .chip-light {
+      background-color: #fff;
+      color: #5c3d2e;
+      border: 1px solid #e0d5c1;
+    }
+
+    /* Product Grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      padding: 0 12px;
+    }
+    .product-card {
+      display: flex;
+      flex-direction: column;
+    }
+    .image-container {
+      position: relative;
+      background-color: #fbf7f4;
+      width: 100%;
+      padding-top: 100%; /* Rasio 1:1 */
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .image-container img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .wishlist-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #5c3d2e;
+    }
+    .product-info {
+      padding: 10px 4px;
+    }
+    .price {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: #2b170c;
+    }
+    .title {
+      font-size: 13px;
+      color: #444;
+      margin-bottom: 4px;
+      font-weight: 500;
+    }
+    .category {
+      font-size: 12px;
+      color: #8c7e74;
+    }
+
+    /* Floating Promo Banner */
+    .bottom-banner {
+      position: fixed;
+      bottom: 12px;
+      left: 12px;
+      right: 12px;
+      background-color: #7b4a2e;
+      color: white;
+      padding: 12px 14px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    .bottom-banner-content {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    .close-box {
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      display: flex;
+      padding: 2px;
+      cursor: pointer;
+      border-radius: 2px;
+    }
+    .arrow-btn {
+      color: white;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-banner">
+    <span>Pesan Fresh H-1 Sebelum Jam 15.00 WIB</span>
+    <span class="material-symbols-outlined" style="font-size: 16px;">expand_more</span>
+  </div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <span class="material-symbols-outlined">menu</span>
+      <span class="material-symbols-outlined">favorite</span>
+    </div>
+    <div class="logo">ora koyo Kue</div>
+    <div class="nav-right">
+      <div class="badge-wrapper">
+        <span class="material-symbols-outlined">person</span>
+        <span class="badge">1</span>
+      </div>
+      <span class="material-symbols-outlined">search</span>
+      <span class="material-symbols-outlined">shopping_bag</span>
+    </div>
+  </nav>
+
+  <!-- Filter Chips / Kategori -->
+  <div class="chips-container">
+    <div class="chip chip-dark">Kue Basah Tradisional 🍰</div>
+    <div class="chip chip-light">🍪 Cookies & Pastry</div>
+  </div>
+
+  <!-- Product Grid -->
+  <main class="product-grid">
+    <!-- Produk 1 -->
+    <div class="product-card">
+      <div class="image-container">
+        <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=500" alt="Fudgy Brownies Panggang">
+        <button class="wishlist-btn"><span class="material-symbols-outlined">favorite</span></button>
+      </div>
+      <div class="product-info">
+        <div class="price">Rp 65.000,00</div>
+        <div class="title">Fudgy Brownies Shiny Crust</div>
+        <div class="category">Kue Panggang Rumahan</div>
+      </div>
+    </div>
+
+    <!-- Produk 2 -->
+    <div class="product-card">
+      <div class="image-container">
+        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500" alt="Chiffon Cake Pandan">
+        <button class="wishlist-btn"><span class="material-symbols-outlined">favorite</span></button>
+      </div>
+      <div class="product-info">
+        <div class="price">Rp 55.000,00</div>
+        <div class="title">Chiffon Cake Pandan Asli</div>
+        <div class="category">Kue Lembut Rumahan</div>
+      </div>
+    </div>
+
+    <!-- Produk 3 -->
+    <div class="product-card">
+      <div class="image-container">
+        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500" alt="Roti Sisir Mentega">
+        <button class="wishlist-btn"><span class="material-symbols-outlined">favorite</span></button>
+      </div>
+      <div class="product-info">
+        <div class="price">Rp 35.000,00</div>
+        <div class="title">Roti Sisir Butter Klasik</div>
+        <div class="category">Roti Hangat Rumahan</div>
+      </div>
+    </div>
+
+    <!-- Produk 4 -->
+    <div class="product-card">
+      <div class="image-container">
+        <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=500" alt="Choco Chip Cookies">
+        <button class="wishlist-btn"><span class="material-symbols-outlined">favorite</span></button>
+      </div>
+      <div class="product-info">
+        <div class="price">Rp 45.000,00</div>
+        <div class="title">Soft Choco Cookies Toples</div>
+        <div class="category">Kue Kering Renyah</div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Floating Banner Promo -->
+  <div class="bottom-banner">
+    <div class="bottom-banner-content">
+      <div class="close-box">
+        <span class="material-symbols-outlined" style="font-size: 16px;">close</span>
+      </div>
+      <span>Diskon 10% untuk pesanan pertamamu!<br>Gunakan kode: ORAKOYO10</span>
+    </div>
+    <a href="#" class="arrow-btn">
+      <span class="material-symbols-outlined">arrow_forward</span>
+    </a>
+  </div>
+
+</body>
+</html>
